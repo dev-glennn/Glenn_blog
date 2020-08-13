@@ -2,28 +2,14 @@ import React from "react";
 import styled, {css} from "styled-components";
 import {NavLink} from "react-router-dom";
 
-const GnbMenu = ({menu,changeMenu}) => {
-
-    let activeId = 1;
-
-    const activePrevId = (activeId - 1 <= 0) ? 4 : activeId - 1;
-    const activeNextId = (activeId + 1 >= 5) ? 1 : activeId + 1;
-
-    let className = '';
-    if (menu.id === activeId) {
-        className = 'gnb-current';
-    } else if (menu.id === activePrevId) {
-        className = 'gnb-prev';
-    } else if (menu.id === activeNextId) {
-        className = 'gnb-next';
-    }
+const GnbMenu = ({menu, changeMenu, activeId, count}) => {
 
     return (
-        // <StyledGnbMenu className={className}>
-        <StyledGnbMenu>
-            <NavLink to={menu.href}
+        <StyledGnbMenu className={(menu.className) ? 'gnb-' + menu.className : ''}>
+            <NavLink to={menu.address}
                      data-menu={(menu.name).toLowerCase()}
-                     onClick={(e) => changeMenu(e)}>{menu.name}</NavLink>
+                     onClick={(e) => changeMenu(e)}
+            >{menu.name}</NavLink>
         </StyledGnbMenu>
     );
 };
@@ -60,7 +46,7 @@ const StyledGnbMenu = styled.li`
             `;
     } else {
         return css`
-                // visibility: hidden;
+                visibility: hidden;
             `;
     }
 }}
