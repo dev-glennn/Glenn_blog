@@ -31,7 +31,8 @@ const SlideBoxContainer = ({dept, children}) => {
     const menus = orgMenus.map((item, index) => {
         const id = item.id;
         const activeId = activeMenu.id;
-        const activePrevId = (activeId - 1 <= 0) ? menusCount - 1 : activeId - 1;
+        console.log(activeId-1);
+        const activePrevId = (activeId - 1 < 0) ? menusCount - 1 : activeId - 1;
         const activeNextId = (activeId + 1 >= menusCount) ? 0 : activeId + 1;
         let className = '';
         if (id === activeId) {

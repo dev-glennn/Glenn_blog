@@ -42,6 +42,7 @@ const StyledSildeBox = styled.div`
         padding: 2.14rem 5rem;
         width: 100%;
         visibility: hidden;
+        transition: 300ms all;
     }
     
     >.content-prev{
