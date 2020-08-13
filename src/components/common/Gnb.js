@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import styled, {css} from "styled-components";
 import GnbMenu from './GnbMenu';
-import {useHistory} from "react-router-dom";
 
 const Gnb = ({menus, changeMenu, dept}) => {
-    
+
     return (
         <StyledGnb dept={dept}>
             {menus.map(menu => (
