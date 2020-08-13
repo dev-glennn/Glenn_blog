@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
-import {shallowEqual, useDispatch, useSelector} from 'react-redux';
-import SlideBox from '../../components/common/SlideBox'
+import SlideBox from '../../components/common/SlideBox';
+import {useHistory} from "react-router-dom";
 
 const SlideBoxContainer = ({dept, children}) => {
 
-    const dispatch = useDispatch();
-    const reduxMenu = useSelector(menu => menu.menu.menu);
-    const [menu, setMenu] = useState(reduxMenu);
+    const history = useHistory();
+    const active = (history.location.pathname === '/') ? 'about' : (history.location.pathname).replace('/', '');
+    const [menu, setMenu] = useState(active);
 
     useEffect(() => {
         // 메뉴 변경됨
@@ -31,7 +31,6 @@ const SlideBoxContainer = ({dept, children}) => {
     const menus = orgMenus.map((item, index) => {
         const id = item.id;
         const activeId = activeMenu.id;
-        console.log(activeId-1);
         const activePrevId = (activeId - 1 < 0) ? menusCount - 1 : activeId - 1;
         const activeNextId = (activeId + 1 >= menusCount) ? 0 : activeId + 1;
         let className = '';
