@@ -24,7 +24,7 @@ const StyledGnb = styled.ul`
     display: block;
     list-style: none;
     max-width: 26.2rem;
-    min-height: 10.2rem;
+    min-height: 8.2rem;
     margin: 0;
     padding: 0;
     

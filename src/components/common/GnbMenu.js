@@ -26,7 +26,7 @@ const StyledGnbMenu = styled.li`
         font-style: italic;
         font-weight: bold;
         color: rgba(167, 170, 189, .5);
-        transition: 300ms all;
+        transition: 300ms linear;
     }
     
     ${({className}) => {

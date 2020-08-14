@@ -5,7 +5,7 @@ import {useHistory} from "react-router-dom";
 const SlideBoxContainer = ({dept, children}) => {
 
     const history = useHistory();
-    const active = (history.location.pathname === '/') ? 'about' : (history.location.pathname).replace('/', '');
+    const active = (history.location.pathname === '/') ? 'about' : (history.location.pathname).replace(/\//gi,'');
     const [menu, setMenu] = useState(active);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ const SlideBoxContainer = ({dept, children}) => {
         };
     });
 
-    const activeMenu = orgMenus.find((item) => (item.name).toLowerCase() === menu)
+    const activeMenu = orgMenus.find((item) => (item.name).toLowerCase() === menu);
     const menusCount = orgMenus.length;
 
     const menus = orgMenus.map((item, index) => {
