@@ -13,7 +13,7 @@ const ResumePage = () => {
                     <History/>
                 </div>
                 <div className="col-6">
-                    <div className="col-12">
+                    <div className="col-12 margin-bottom">
                         <h2><img src="/resume/skill.png" alt="Development Skills Icon"/>Development Skills</h2>
                         <Skills/>
                     </div>

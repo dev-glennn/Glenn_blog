@@ -96,17 +96,6 @@ const StyledHistory = styled.div`
             }
         }
         
-        .history-line:after {
-            display: inline-block;
-            content: '';
-            width: 1px;
-            height: 100%;
-            background-color: rgba(167, 170, 189, .5);
-            position: absolute;
-            top: 0;
-            left: 50%;
-        }
-        
         .history-line {
             position: relative;
             width: 100%;
