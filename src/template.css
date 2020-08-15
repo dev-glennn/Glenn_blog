@@ -67,12 +67,16 @@
     height: 35px;
 }
 
+.row > .col-12 {
+    padding: 0 !important;
+}
+
 .row > div:first-child {
-    padding-right: 3rem;
+    padding-right: 2.5rem;
 }
 
 .row > div:last-child {
-    padding-left: 3rem;
+    padding-left: 2.5rem;
 }
 
 .row .col-1 {
