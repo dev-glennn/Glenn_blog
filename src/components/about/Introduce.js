@@ -13,25 +13,21 @@ const Introduce = () => {
     ];
 
     useEffect(() => {
-        rotateFunc();
+        const rotateItems = document.querySelectorAll('.rotate-item');
+        const rotateItemCount = document.getElementsByClassName('rotate-intro')[0].childNodes.length;
+        let rotateOrder = 1;
 
-        function rotateFunc() {
-            const rotateItems = document.querySelectorAll('.rotate-item');
-            const rotateItemCount = document.getElementsByClassName('rotate-intro')[0].childNodes.length;
-            let rotateOrder = 1;
-
-            setInterval(() => {
-                let prevRotateOrder = (rotateOrder === 0) ? rotateItemCount - 1 : rotateOrder - 1;
-                rotateItems[prevRotateOrder].classList.remove('fadeIn');
-                rotateItems[prevRotateOrder].classList.add('fadeOut');
-                rotateItems[rotateOrder].classList.remove('fadeOut');
-                rotateItems[rotateOrder].classList.add('fadeIn');
-                rotateOrder++;
-                if (rotateOrder >= rotateItemCount) {
-                    rotateOrder = 0;
-                }
-            }, 2500);
-        }
+        setInterval(() => {
+            let prevRotateOrder = (rotateOrder === 0) ? rotateItemCount - 1 : rotateOrder - 1;
+            rotateItems[prevRotateOrder].classList.remove('fadeIn');
+            rotateItems[prevRotateOrder].classList.add('fadeOut');
+            rotateItems[rotateOrder].classList.remove('fadeOut');
+            rotateItems[rotateOrder].classList.add('fadeIn');
+            rotateOrder++;
+            if (rotateOrder >= rotateItemCount) {
+                rotateOrder = 0;
+            }
+        }, 2500);
     }, []);
 
     return (
