@@ -39,7 +39,7 @@ const StyledSildeBox = styled.div`
     width: 80%;
     >div {
         position: absolute;
-        padding: 2.14rem 2rem;
+        padding: 2.14rem 2rem 5rem;
         width: 100%;
         visibility: hidden;
         transition: 300ms all;
