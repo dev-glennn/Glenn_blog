@@ -38,7 +38,8 @@ const StyledGnbMenu = styled.li`
         return css`
                 left: 0;
                 >a{
-                    color: #434656;
+                    // color: #434656;
+                    color: #ffffff;
                 }
             `;
     } else if (className === 'gnb-next') {

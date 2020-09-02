@@ -25,13 +25,13 @@ const StyledTags = styled.div`
     
     >span {
         margin-right: .4rem;
-        color: rgba(66, 69, 84, .6);
+        color: rgba(176, 179, 184, .6);
         font-weight: 300;
         cursor: default;
         transition: 200ms all;
     }
     
     >span:hover {
-        color: #434656;
+        color: rgb(176 179 184);
     }
 `;

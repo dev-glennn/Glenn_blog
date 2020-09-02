@@ -39,7 +39,7 @@ const StyledLanguage = styled.div`
         }
         
         >span {
-            color: #A7AABD;
+            color: #B0B3B8;
             font-size: 1rem;
             font-weight: 300;
             margin: .71rem 0;
