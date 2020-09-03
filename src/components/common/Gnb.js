@@ -1,22 +1,19 @@
 import React from "react";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import GnbMenu from './GnbMenu';
 
-const Gnb = ({menus, changeMenu, dept}) => {
+const Gnb = ({menus}) => {
 
     return (
-        <>
-            메뉴영역
-            </>
-        // <StyledGnb dept={dept}>
-        //     {menus.map(menu => (
-        //         <GnbMenu
-        //             key={menu.id}
-        //             menu={menu}
-        //             changeMenu={changeMenu}
-        //         />
-        //     ))}
-        // </StyledGnb>
+        <StyledGnb className="sm-width">
+            {
+                menus.map((menu, i) => (
+                    <GnbMenu
+                        key={i}
+                        menu={menu}
+                    />
+                ))}
+        </StyledGnb>
     );
 };
 
@@ -24,14 +21,9 @@ export default Gnb;
 
 const StyledGnb = styled.ul`
     position: relative;
-    display: block;
+    display: flex;
     list-style: none;
-    max-width: 26.2rem;
-    min-height: 8.2rem;
-    margin: 0;
+    width: 100%;
+    margin: 0 auto;
     padding: 0;
-    
-    ${({dept}) => css`
-        width: calc(100% / ${dept});
-    `}
 `;

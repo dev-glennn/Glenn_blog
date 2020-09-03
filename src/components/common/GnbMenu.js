@@ -1,15 +1,12 @@
 import React from "react";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import {NavLink} from "react-router-dom";
 
-const GnbMenu = ({menu, changeMenu, activeId, count}) => {
+const GnbMenu = ({menu}) => {
 
     return (
-        <StyledGnbMenu className={(menu.className) ? 'gnb-' + menu.className : ''}>
-            <NavLink to={menu.address}
-                     data-menu={(menu.name).toLowerCase()}
-                     onClick={(e) => changeMenu(e)}
-            >{menu.name}</NavLink>
+        <StyledGnbMenu>
+            <NavLink to={menu.path} activeClassName="active" exact={menu.path==='/'}>{menu.name}</NavLink>
         </StyledGnbMenu>
     );
 };
@@ -17,38 +14,38 @@ const GnbMenu = ({menu, changeMenu, activeId, count}) => {
 export default GnbMenu;
 
 const StyledGnbMenu = styled.li`
-    position: absolute;
-    padding: 2.5rem;
-    width: 100%;
+    display: inline-block;
     text-align: center;
     >a {
-        font-size: 30px;
-        font-style: italic;
+        z-index: 1;
+        position: relative;
+        display: inline-block;
+        font-size: 1rem;
         font-weight: bold;
-        color: rgba(167, 170, 189, .5);
-        transition: 300ms linear;
+        color: #65676b;
+        padding: 1.3rem 2rem;
     }
     
-    ${({className}) => {
-    if (className === 'gnb-prev') {
-        return css`
-                left: -100%;
-            `;
-    } else if (className === 'gnb-current') {
-        return css`
-                left: 0;
-                >a{
-                    color: #434656;
-                }
-            `;
-    } else if (className === 'gnb-next') {
-        return css`
-                left: 100%;
-            `;
-    } else {
-        return css`
-                visibility: hidden;
-            `;
+    >a:hover:before {
+        z-index: -1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: inline-block;
+        content: '';
+        width: 100%;
+        height: 80%;
+        background-color: #f2f2f2;
+        border-radius: .6rem;
     }
-}}
+    
+    >a.active{
+        color: #1876f2;
+        border-bottom: 2px solid #1876f2;
+    }
+    
+    >a.active:hover:before {
+        display: none;
+    }
 `;

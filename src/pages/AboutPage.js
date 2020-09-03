@@ -1,12 +1,11 @@
 import React from "react";
-import Template from "../components/common/Template";
 import Introduce from "../components/about/Introduce";
 import Tags from "../components/about/Tags";
 import Language from "../components/about/Language";
 
 const AboutPage = () => {
     return (
-        <Template>
+        <>
             <div className="row">
                 <div className="col-7">
                     <h2>
@@ -39,7 +38,7 @@ const AboutPage = () => {
                     <Language type="database"/>
                 </div>
             </div>
-        </Template>
+        </>
     );
 };
 

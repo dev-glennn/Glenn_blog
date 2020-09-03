@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import styled, {css} from "styled-components";
+import React, {useState} from 'react';
+import styled, {css,keyframes} from "styled-components";
 import {ColorExtractor} from 'react-color-extractor';
 
 const profile = {
@@ -10,18 +10,18 @@ const profile = {
     'bgImg': '/common/profile-bg.png'
 };
 
-const Header = () => {
+const Header = ({animateClass}) => {
 
     const [bgGradient, setBgGradient] = useState(null);
 
     return (
-        <StyledHeader>
+        <StyledHeader animateClass={animateClass}>
             <ProfileBg gradient={bgGradient}>
-                <ProfileBgImage src={profile.bgImg}/>
+                <ProfileBgImage src={profile.bgImg} className="md-width"/>
                 <ProfileImage src={profile.img}/>
                 <div className="profile-bg"/>
             </ProfileBg>
-            <ProfileBox>
+            <ProfileBox className="sm-width">
                 <ProfileName>
                     {profile.nameKr}
                     <span className="english-name">({profile.nameEn})</span>
@@ -61,7 +61,6 @@ const ProfileName = styled.p`
 const ProfileBox = styled.div`
     position: relative;
     width: 100%;
-    max-width: 908px;
     padding: 0 1rem 1rem;
     text-align: center;
     border-bottom: 1px solid #ced0d4;
@@ -83,7 +82,6 @@ const ProfileBgImage = styled.img`
     object-fit: cover;
     z-index: 1;
     width: 100%;
-    max-width: 940px;
     height: 100%;
     border-radius: 0px 0px max(0px, min(8px, ((100vw - 4px) - 100%) * 9999)) max(0px, min(8px, ((100vw - 4px) - 100%) * 9999)) / 0px 0px 8px 8px;
 `;
@@ -135,4 +133,34 @@ const StyledHeader = styled.div`
     flex-direction: column;
     width: 100%;
     margin: auto;
+    
+    ${props => {
+    if (props.animateClass === 'locationUp') {
+        return css`
+                animation: ${locationUp} 300ms ease-in-out forwards;
+             `;
+    } else if (props.animateClass === 'locationDown') {
+        return css`
+                animation: ${locationDown} 300ms ease-in-out forwards;
+             `;
+    }
+}}
+`;
+
+const locationUp = keyframes`
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-50px);
+    }
+`;
+
+const locationDown = keyframes`
+    from {
+        transform: translateY(-50px);
+    }
+    to {
+        transform: translateY(0);
+    }
 `;
