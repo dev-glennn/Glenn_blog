@@ -1,7 +1,5 @@
 import React from "react";
-import Introduce from "../components/about/Introduce";
-import Tags from "../components/about/Tags";
-import Language from "../components/about/Language";
+import Social from "../components/timeline/Social";
 
 const TimelinePage = () => {
     return (
@@ -11,6 +9,7 @@ const TimelinePage = () => {
                     <h2 className="font-lg">
                         소개
                     </h2>
+                    <Social/>
                 </div>
                 <div className="col">
                     <h2 className="font-lg">

@@ -1,5 +1,5 @@
 .row {
-    color: #434656;
+    color: #050505;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -36,21 +36,6 @@
 
 .row h2.font-lg {
     font-size: 1.42rem;
-}
-
-.row h2 > img {
-    color: #434656;
-    margin-right: .3rem;
-}
-
-.row h2 > img.img-sm {
-    width: 20px;
-    height: 20px;
-}
-
-.row h2 > img.img-lg {
-    width: 35px;
-    height: 35px;
 }
 
 .row > .col-1, .row > .col-2, .row > .col-3, .row > .col-4, .row > .col-5, .row > .col-6, .row > .col-7, .row > .col-8, .row > .col-9, .row > .col-10, .row > .col-11, .row > .col-12 {
