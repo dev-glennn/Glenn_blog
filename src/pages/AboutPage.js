@@ -1,44 +1,29 @@
 import React from "react";
 import Introduce from "../components/about/Introduce";
-import Tags from "../components/about/Tags";
 import Language from "../components/about/Language";
 
 const AboutPage = () => {
     return (
-        <>
-            <div className="row">
-                <div className="col-7">
-                    <h2>
-                        <img src="/about/introduce.svg" className="img-sm" alt="Introduce Icon"/>
-                        introduce
-                    </h2>
+        <div className="row">
+            <div className="col-12">
+                <div className="col">
+                    <h2 className="font-lg">정보</h2>
                     <Introduce/>
                 </div>
-                <div className="col-5">
-                    <h2>
-                        <img src="/about/tag.svg" className="img-sm" alt="Tags Icon"/>
-                        tags
-                    </h2>
-                    <Tags/>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col-6">
-                    <h2>Front - End</h2>
+                <div className="col">
+                    <h2 className="font-lg">프론트엔드</h2>
                     <Language type="front"/>
                 </div>
-                <div className="col-6">
-                    <h2>Back - End</h2>
+                <div className="col">
+                    <h2 className="font-lg">백엔드</h2>
                     <Language type="back"/>
                 </div>
-            </div>
-            <div className="row last-row">
-                <div className="col-12">
-                    <h2>Database & Hosting Service</h2>
+                <div className="col">
+                    <h2 className="font-lg">데이터베이스 & 호스팅</h2>
                     <Language type="database"/>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

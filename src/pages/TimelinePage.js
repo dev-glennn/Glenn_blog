@@ -7,15 +7,11 @@ const TimelinePage = () => {
         <div className="row">
             <div className="col-5">
                 <div className="col">
-                    <h2 className="font-lg">
-                        소개
-                    </h2>
+                    <h2 className="font-lg">소개</h2>
                     <Social/>
                 </div>
                 <div className="col">
-                    <h2 className="font-lg">
-                        태그
-                    </h2>
+                    <h2 className="font-lg">태그</h2>
                     <Tags/>
                 </div>
             </div>
