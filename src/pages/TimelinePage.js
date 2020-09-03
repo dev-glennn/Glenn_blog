@@ -1,6 +1,7 @@
 import React from "react";
 import Social from "../components/timeline/Social";
 import Tags from "../components/timeline/Tags";
+import Skills from "../components/timeline/Skills";
 
 const TimelinePage = () => {
     return (
@@ -9,6 +10,10 @@ const TimelinePage = () => {
                 <div className="col">
                     <h2 className="font-lg">소개</h2>
                     <Social/>
+                </div>
+                <div className="col">
+                    <h2 className="font-lg">스킬</h2>
+                    <Skills/>
                 </div>
                 <div className="col">
                     <h2 className="font-lg">태그</h2>
