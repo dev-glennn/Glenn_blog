@@ -1,23 +1,21 @@
 import React from 'react';
+import {Route} from 'react-router-dom';
 
-import Header from './components/common/Header';
-import SlideBoxContainer from './containers/common/SlideBoxContainer';
+import TimelinePage from './pages/TimelinePage';
 import AboutPage from './pages/AboutPage';
 import ResumePage from './pages/ResumePage';
 import PortfolioPage from './pages/PortfolioPage';
-import ContactPage from './pages/ContactPage';
+import Template from "./components/common/Template";
+
 
 function App() {
     return (
-        <>
-            <Header/>
-            <SlideBoxContainer>
-                <AboutPage name={'About'} path={'/about'}/>
-                <ResumePage name={'Resume'} path={'/resume'}/>
-                <PortfolioPage name={'Portfolio'} path={'/portfolio'}/>
-                <ContactPage name={'Contact'} path={'/contact'}/>
-            </SlideBoxContainer>
-        </>
+        <Template>
+            <Route component={TimelinePage} path={'/'} exact/>
+            <Route component={AboutPage} path={'/about'} exact/>
+            <Route component={ResumePage} path={'/resume'} exact/>
+            <Route component={PortfolioPage} path={'/portfolio'} exact/>
+        </Template>
     );
 }
 

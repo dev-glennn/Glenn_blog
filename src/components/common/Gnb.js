@@ -5,15 +5,18 @@ import GnbMenu from './GnbMenu';
 const Gnb = ({menus, changeMenu, dept}) => {
 
     return (
-        <StyledGnb dept={dept}>
-            {menus.map(menu => (
-                <GnbMenu
-                    key={menu.id}
-                    menu={menu}
-                    changeMenu={changeMenu}
-                />
-            ))}
-        </StyledGnb>
+        <>
+            메뉴영역
+            </>
+        // <StyledGnb dept={dept}>
+        //     {menus.map(menu => (
+        //         <GnbMenu
+        //             key={menu.id}
+        //             menu={menu}
+        //             changeMenu={changeMenu}
+        //         />
+        //     ))}
+        // </StyledGnb>
     );
 };
 
