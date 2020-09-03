@@ -36,5 +36,9 @@ const StyledBody = styled.div`
     margin: auto;
     width: 100%;
     text-align: left;
-    height: 1000px;
+    
+    >.sm-width {
+        margin-top: 1.14rem;
+        padding: 0 1.14rem;
+    }
 `;
