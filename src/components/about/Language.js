@@ -39,8 +39,8 @@ const StyledLanguage = styled.div`
         }
         
         >span {
-            color: #A7AABD;
-            font-size: 1rem;
+            color: #050505;
+            font-size: .8rem;
             font-weight: 300;
             margin: .71rem 0;
         }
