@@ -25,7 +25,7 @@ const HistoryItem = ({data}) => {
     );
 };
 
-const History = ({year, yearTable, historyTable}) => {
+const History = ({yearTable, historyTable}) => {
     return (
         <StyledHistory>
             <StyledYearTable>

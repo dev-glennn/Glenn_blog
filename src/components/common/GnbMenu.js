@@ -23,7 +23,7 @@ const StyledGnbMenu = styled.li`
         font-size: 1rem;
         font-weight: bold;
         color: #65676b;
-        padding: 1.3rem 2rem;
+        padding: 1.3rem 1.5rem;
     }
     
     >a:not(.active):hover:before {
