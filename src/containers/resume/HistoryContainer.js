@@ -2,7 +2,7 @@ import React from "react";
 import History from "../../components/resume/History";
 
 const HistoryContainer = ({match}) => {
-    const year=match.params.year||'all';
+    const year = match.params.year || 'all';
     const sortHistory = historyTable.sort((a, b) => (Object.keys(b)[0] - Object.keys(a)[0]));
     const newHistory = (year === 'all') ? sortHistory : sortHistory.filter((i) => (Object.keys(i)[0] === year));
     const newYearTable = sortHistory.map((item) => (Object.keys(item)[0]));
