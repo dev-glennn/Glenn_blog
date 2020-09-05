@@ -6,7 +6,7 @@ const GnbMenu = ({menu}) => {
 
     return (
         <StyledGnbMenu>
-            <NavLink to={menu.path} activeClassName="active" exact={menu.path==='/'}>{menu.name}</NavLink>
+            <NavLink to={menu.path} activeClassName="active" exact={menu.path === '/'}>{menu.name}</NavLink>
         </StyledGnbMenu>
     );
 };
@@ -26,7 +26,7 @@ const StyledGnbMenu = styled.li`
         padding: 1.3rem 2rem;
     }
     
-    >a:hover:before {
+    >a:not(.active):hover:before {
         z-index: -1;
         position: absolute;
         top: 50%;
@@ -40,12 +40,12 @@ const StyledGnbMenu = styled.li`
         border-radius: .6rem;
     }
     
+    >a:not(.active):active:before {
+        background-color: #e5e5e5;
+    }   
+            
     >a.active{
         color: #1876f2;
         border-bottom: 2px solid #1876f2;
-    }
-    
-    >a.active:hover:before {
-        display: none;
     }
 `;

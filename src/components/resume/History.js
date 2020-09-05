@@ -1,14 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
-const historyTable = [
-    {'2020': [{'07.15': '코드베르그 퇴사'}, {'02.22': '한양사이버대학교 졸업'}]},
-    {'2019': [{'04.15': '코드베르그 입사'}]},
-    {'2018': [{'03.02': '한양사이버대학교(아동학과) 편입'}, {'02.05': '한양여자대학교 졸업'}, {'02.00': '인터파크 투어 인턴쉽 종료'}]},
-    {'2017': [{'08.16': '인터파크 투어 인턴쉽 시작'}]},
-    {'2016': [{'03.02': '서산여자고등학교 졸업'}, {'02.26': '한양여자대학교(호텔관광과) 입학'}]},
-    {'2013': [{'03.00': '서산여자고등학교 입학'}]}
-];
+import {NavLink} from "react-router-dom";
 
 const HistoryItem = ({data}) => {
     return (
@@ -16,9 +8,9 @@ const HistoryItem = ({data}) => {
             {
                 data.map((item, index) => {
                     const dateArr = Object.keys(item)[0].split('.');
-                    let date = dateArr[0] + '월';
+                    let date = dateArr[0] + '';
                     if (dateArr[1] !== '00') {
-                        date += ' ' + dateArr[1] + '일';
+                        date += '.' + dateArr[1] + '';
                     }
                     const text = Object.values(item)[0];
                     return (
@@ -33,101 +25,132 @@ const HistoryItem = ({data}) => {
     );
 };
 
-const History = () => {
+const History = ({year, yearTable, historyTable}) => {
     return (
         <StyledHistory>
-            {historyTable.map((item, index) => {
-                const year = Object.keys(item)[0];
-                const data = Object.values(item)[0];
+            <StyledYearTable>
+                <h2 className="font-lg">히스토리</h2>
+                <ul>
+                    <li><NavLink to="/resume" activeClassName="active" exact>전체</NavLink></li>
+                    {yearTable.map((item, i) => {
+                        return (
+                            <li key={i}><NavLink to={"/resume/" + item} activeClassName="active" exact>{item}년</NavLink>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </StyledYearTable>
+            <StyledHistoryTable>
+                {historyTable.map((item, index) => {
+                    const year = Object.keys(item)[0];
+                    const data = Object.values(item)[0];
 
-                return (
-                    <div key={index} className="history-box">
-                        <div className="history-left">
-                            <div className="history-year">
-                                {year}
-                            </div>
-                            <div className="history-line"/>
-                        </div>
-                        <div className="history-right">
+                    return (
+                        <div key={index} className="history-box">
+                            <h3>{year}</h3>
                             <HistoryItem data={data}/>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </StyledHistoryTable>
         </StyledHistory>
     );
 };
 
 export default History;
 
-const StyledHistory = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    
-    .history-box:first-child .history-year{
-        background-color: #9EB4FD !important;
-    }
+const StyledHistoryTable = styled.div`
+    flex: 1;
+    padding-left: 1.14rem;
     
     >.history-box {
+        margin-bottom: 2.5rem;
+    }
+    
+    >.history-box:last-child {
+        margin-bottom: 0;
+    }
+    
+    >.history-box > h3 {
+        font-size: 1.2rem;
+    }
+    
+    .history-item {
+        margin-bottom: 1rem;
         display: flex;
-        width: 95%;
+        font-size: 1rem;
+        width: 100%;
         
-        >.history-left {
-            position: relative;
-            min-width: 5rem;
-            margin-right: 2.9rem;
-            display: flex;
-            flex-direction: column;
-            
-            >.history-year {
-                position: relative;
-                width: 5rem;
-                height: 5rem;
-                font-size: 1rem;
-                color: #fff;
-                font-weight: bold;
-                background-color: #A7AABD;
-                border-radius: 2.5rem;
-                display: inline-block;
-                text-align: center;
-                line-height: 5rem;
-            }
+        >p {
+            margin: 0;
         }
         
-        .history-line {
-            position: relative;
+        .history-date {
+            min-width: 10%;
+            color: #65676B;
+            font-size: .9rem;
+            font-weight: 600;
+        }
+    }
+    
+`;
+
+const StyledYearTable = styled.div`
+    border-right: 1px solid #ced0d4;
+    width: 25%;
+    margin: -1.14rem 0 -1.14rem -1.14rem;
+    padding: 1.14rem 0;
+    
+    >h2 {
+        padding: 0 1.14rem;
+    }
+    
+    >ul {
+        margin: 0;
+        padding: 0 .4rem;
+        list-style: none;
+        
+        >li {
             width: 100%;
-            display: inline-block;
-            flex: 1;
-            margin: .5rem 0;
-        }
-        
-        >.history-right {
-            flex: 1;
             
-            >.history-item {
-                border: 1px solid rgba(66, 69, 84, .2);
-                padding: 1rem 1.3rem;
-                margin-bottom: 1.3rem;
-                
-                >p {
-                    margin: 0;
-                    font-weight: 300;
-                }
-                
-                >.history-date {
-                    margin-bottom: .6em;
-                    color: #A7AABD;
-                    font-style: italic;
-                    font-size: 1rem;
-                }
-                
-                >.history-text {
-                    font-size: 1.18rem;
-                }
+            >a {
+                z-index: 1;
+                position: relative;
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 0.28rem;
+                padding: 0.7rem;
+                font-weight: bold;
+                border-radius: .42rem;
+                color: #65676B;
+            }
+            
+            >a:not(.active):hover:before {
+                z-index: -1;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                display: inline-block;
+                content: '';
+                width: 100%;
+                height: 100%;
+                background-color: #f2f2f2;
+                border-radius: .6rem;
+            }
+            
+            >a:not(.active):active:before {
+                background-color: #e5e5e5;
+            }
+            
+            >a.active {
+                background-color: #e7f3ff;
+                color: #385898;
             }
         }
     }
+`;
+
+const StyledHistory = styled.div`
+    display: flex;
 `;
