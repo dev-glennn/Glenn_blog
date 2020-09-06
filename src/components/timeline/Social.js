@@ -36,7 +36,8 @@ const Social = () => {
                     <StyledSocialItem key={i}>
                         <Icon icon={icons[icon]}/>
                         <div className="social-link">
-                            {(type === 'link') ? <a target="_blank" href={path}>{path}</a> : path}
+                            {(type === 'link') ?
+                                <a target="_blank" rel="noopener noreferrer" href={path}>{path}</a> : path}
                         </div>
                     </StyledSocialItem>
                 )

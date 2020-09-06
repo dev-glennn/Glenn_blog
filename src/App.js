@@ -10,13 +10,15 @@ import Template from "./components/common/Template";
 
 function App() {
     return (
-        <Template>
-            <Route component={TimelinePage} path={'/'} exact/>
-            <Route component={AboutPage} path={'/about'} exact/>
-            <Route component={ResumePage} path={'/resume'} exact/>
-            <Route component={ResumePage} path={'/resume/:year([0-9]+)'} exact/>
-            <Route component={PortfolioPage} path={'/portfolio'} exact/>
-        </Template>
+        <>
+            <Template>
+                <Route component={TimelinePage} path={'/'} exact/>
+                <Route component={AboutPage} path={'/about'} exact/>
+                <Route component={ResumePage} path={'/resume'} exact/>
+                <Route component={ResumePage} path={'/resume/:year([0-9]+)'} exact/>
+                <Route component={PortfolioPage} path={'/portfolio'} exact/>
+            </Template>
+        </>
     );
 }
 
