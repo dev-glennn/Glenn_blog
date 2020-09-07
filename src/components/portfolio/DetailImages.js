@@ -117,7 +117,7 @@ const StyledModal = styled.div`
             
             >* {
                 max-width: 100% !important;
-                width: 100%;
+                width: 100% !important;
             }
         }
     }
@@ -129,7 +129,9 @@ const StyledDescArea = styled.div`
     
     @media screen and (max-width: 930px) {
         & {
-            height: auto !important;
+            min-height: 30%;
+            height: 30% !important;
+            overflow: scroll;
         }
     }
 `;
@@ -169,5 +171,10 @@ const StyledImageArea = styled.div`
         z-index: 200;
         cursor: pointer;
     }
-    
+    @media screen and (max-width: 930px) {
+        & {
+            height: 100% !important;
+            max-height: 80% !important;
+        }
+    }
 `;
