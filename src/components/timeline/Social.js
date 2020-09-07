@@ -18,7 +18,7 @@ const socialAddress = [
         'icon': 'vimeo',
     }, {
         'type': 'link',
-        'path': 'https://open.kakao.com/o/ss3NVzkc',
+        'path': 'https://open.kakao.com/o/sssSDZuc',
         'icon': 'commenting',
     }, {
         'type': 'text',
