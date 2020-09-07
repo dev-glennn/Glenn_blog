@@ -15,6 +15,39 @@ export default PortfolioContainer;
 
 const portfolioTable = [
     {
+        'project': 'Glenn Blog', //프로젝트 명
+        'startDate': '2020.09.03', //프로젝트 시작
+        'finishDate': '2020.09.07', //프로젝트 완료
+        'description': 'React를 사용하여 개인 포트폴리오 및 본인소개를 위한 사이트를 개발하였습니다.', //프로젝트 설명
+        'images': [
+            {
+                'img': 'blog-01.png',
+                'desc': '프로필 사진과 배경사진 한줄 소개를 보여주는 메인 상단 화면입니다.'
+            },
+            {
+                'img': 'blog-02.png',
+                'desc': 'SNS 링크를 소개하고, 개발 스킬과 태그를 사용하여 개발언어에 대한 숙련도를 표시합니다.'
+            },
+            {
+                'img': 'blog-03.png',
+                'desc': '진행해온 포트폴리오를 나열하여 간략한 소개와 이미지 그리고 사용 기술을 보여줍니다.'
+            },
+            {
+                'img': 'blog-04.png',
+                'desc': '이미지를 클릭하면 해당 이미지의 상세 설명과 큰 사이즈의 이미지를 볼 수 있습니다.'
+            },
+            {
+                'img': 'blog-05.png',
+                'desc': '간략한 정보와 각 분야별 사용 기술을 나열하였습니다.'
+            },
+            {
+                'img': 'blog-06.png',
+                'desc': '각 년도별 히스토리를 보여주도록 나열하였습니다.'
+            },
+        ], //프로젝트 이미지
+        'skills': ['React','CSS','Javascript'], //사용 기술
+    },
+    {
         'project': 'COAL(코로나 알리미)', //프로젝트 명
         'startDate': '2020.02.03', //프로젝트 시작
         'finishDate': '2020.02.28', //프로젝트 완료
