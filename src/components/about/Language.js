@@ -12,7 +12,7 @@ const Language = ({type}) => {
         <StyledLanguage>
             {languageArr[type].map((item, index) => {
                 return <div key={index} className="language">
-                    <img src={"/about/lang-" + item.toLowerCase() + ".png"} alt={item}/>
+                    <img src={"about/lang-" + item.toLowerCase() + ".png"} alt={item}/>
                     <span>{item}</span>
                 </div>
             })}

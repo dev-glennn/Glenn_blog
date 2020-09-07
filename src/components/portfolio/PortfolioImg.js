@@ -8,7 +8,7 @@ const PortfolioImg = ({images, width, count, openImage}) => {
             {images.map((item, i) => {
                 return (
                     <StyledPortfolioImg key={i} count={count.current} onClick={() => openImage(i)}>
-                        <img src={'/portfolio/' + item.img} alt={item.desc}/>
+                        <img src={'portfolio/' + item.img} alt={item.desc}/>
                     </StyledPortfolioImg>
                 )
             })}

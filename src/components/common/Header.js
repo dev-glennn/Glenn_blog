@@ -6,8 +6,8 @@ const profile = {
     'nameKr': '조민주',
     'nameEn': 'Glenn',
     'desc': 'A minute\'s success pays the failure of years.',
-    'img': '/common/profile.png',
-    'bgImg': '/common/profile-bg.png'
+    'img': 'common/profile.png',
+    'bgImg': 'common/profile-bg.png'
 };
 
 const Header = ({animateClass}) => {

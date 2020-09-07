@@ -13,7 +13,7 @@ const Portfolio = ({data}) => {
     return (
         <StyledPortfolio className="col portfolio-col">
             <StyledHead>
-                <img className="pf-profile" src="/common/profile.png" alt="profile"/>
+                <img className="pf-profile" src="common/profile.png" alt="프로필 이미지"/>
                 <div className="pf-title">
                     <p className="pf-name">{project}</p>
                     <p className="pf-period">{startDate + ' ~ ' + finishDate}</p>

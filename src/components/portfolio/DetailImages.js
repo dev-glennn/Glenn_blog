@@ -43,7 +43,7 @@ const DetailImages = ({visible, images, closeEvent, info, selectImage}) => {
             </StyledImageArea>
             <StyledDescArea>
                 <StyledHead>
-                    <img className="pf-profile" src="/common/profile.png" alt="프로필 이미지"/>
+                    <img className="pf-profile" src="common/profile.png" alt="프로필 이미지"/>
                     <div className="pf-title">
                         <p className="pf-name">{info.project}</p>
                         <p className="pf-period">{info.period}</p>
