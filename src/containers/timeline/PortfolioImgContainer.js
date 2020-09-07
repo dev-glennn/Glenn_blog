@@ -24,7 +24,7 @@ const PortfolioImgContainer = ({info, images}) => {
         } else {
             setClientWidth(portfolioWidth);
         }
-    }, []);
+    }, [, selectImage]);
 
     // 팝업창 열기
     const openImage = (i) => {

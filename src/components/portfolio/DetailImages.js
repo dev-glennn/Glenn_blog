@@ -110,11 +110,28 @@ const StyledModal = styled.div`
     display: flex;
     max-width: 100%;
     max-height: 100%;
+    
+    @media screen and (max-width: 930px) {
+        & {
+            flex-direction: column;
+            
+            >* {
+                max-width: 100% !important;
+                width: 100%;
+            }
+        }
+    }
 `;
 
 const StyledDescArea = styled.div`
     height: 100%;
-    width: 25.7rem
+    width: 25.7rem;
+    
+    @media screen and (max-width: 930px) {
+        & {
+            height: auto !important;
+        }
+    }
 `;
 
 const StyledImages = styled.div`
@@ -126,7 +143,6 @@ const StyledImages = styled.div`
     display: inline-block;
     flex: 1;
     background-color: rgba(0,0,0,.3);
-    // overflow: hidden;
     display: flex;
     justify-content :center;
     align-items : center;
@@ -153,4 +169,5 @@ const StyledImageArea = styled.div`
         z-index: 200;
         cursor: pointer;
     }
+    
 `;

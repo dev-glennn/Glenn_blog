@@ -33,12 +33,12 @@ const Introduce = () => {
     return (
         <StyledIntroduce>
             <p>안녕하세요. 저는
-                <span className="rotate-intro">
+                <p className="rotate-intro">
                     {rotateIntroArr.map((item, index) => {
                         return <span key={index}
                                      className={(index === 0) ? "rotate-item fadeIn" : "rotate-item"}>{item}</span>;
                     })}
-                </span>
+                </p>
             </p>
             <p>주 사용 언어는 Javascript 와 php 이며, 프론트 개발과 백엔드 개발에 관심이 있습니다.</p>
             <p>항상 배움을 멈추지 않겠습니다.</p>
@@ -91,6 +91,16 @@ const StyledIntroduce = styled.div`
     return css`animation: ${rotateIn} .5s linear forwards;`
 }}
             }
+        }
+    }
+    
+    @media screen and (max-width: 930px) {
+        >p {
+            align-items: flex-start;
+            flex-direction: column; 
+            >.rotate-intro {
+                margin-left: 0;
+            }       
         }
     }
 `;

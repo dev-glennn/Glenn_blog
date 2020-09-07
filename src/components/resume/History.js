@@ -149,8 +149,22 @@ const StyledYearTable = styled.div`
             }
         }
     }
+    
+    @media screen and (max-width: 930px) {
+        & {
+            width: 100%;
+            margin: 0;
+            border-right: 0;    
+            border-bottom: 1px solid #ced0d4;    
+        }
+    }
 `;
 
 const StyledHistory = styled.div`
     display: flex;
+    @media screen and (max-width: 930px) {
+        & {
+            flex-direction: column;
+        }
+    }
 `;
