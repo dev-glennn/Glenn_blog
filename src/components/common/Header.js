@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
-import styled, {css,keyframes} from "styled-components";
+import styled, {css} from "styled-components";
 import {ColorExtractor} from 'react-color-extractor';
 
 const profile = {
     'nameKr': '조민주',
-    'nameEn': 'Jo MinJu',
-    'desc': 'Front & Back Developer',
+    'nameEn': 'Glenn',
+    'desc': 'A minute\'s success pays the failure of years.',
     'img': '/common/profile.png',
     'bgImg': '/common/profile-bg.png'
 };
@@ -76,6 +76,7 @@ const ProfileImage = styled.img`
     height: 13rem;
     border-radius: 7.5rem;
     border: .3rem solid #FFF;
+    object-fit: cover;
 `;
 
 const ProfileBgImage = styled.img`
@@ -133,34 +134,4 @@ const StyledHeader = styled.div`
     flex-direction: column;
     width: 100%;
     margin: auto;
-    
-    ${props => {
-    if (props.animateClass === 'locationUp') {
-        return css`
-                animation: ${locationUp} 300ms ease-in-out forwards;
-             `;
-    } else if (props.animateClass === 'locationDown') {
-        return css`
-                animation: ${locationDown} 300ms ease-in-out forwards;
-             `;
-    }
-}}
-`;
-
-const locationUp = keyframes`
-    from {
-        transform: translateY(0);
-    }
-    to {
-        transform: translateY(-50px);
-    }
-`;
-
-const locationDown = keyframes`
-    from {
-        transform: translateY(-50px);
-    }
-    to {
-        transform: translateY(0);
-    }
 `;

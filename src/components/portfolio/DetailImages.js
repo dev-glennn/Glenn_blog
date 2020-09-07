@@ -1,30 +1,30 @@
 import React, {useEffect, useState} from "react";
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import {CgClose} from "react-icons/cg";
 import Slides from "../common/Slides";
 
-const DetailImages = ({visible, images, selectImage, closeEvent, info}) => {
+const DetailImages = ({visible, images, closeEvent, info, selectImage}) => {
 
-    const [selectNumber, setSelectNumber] = useState(selectImage);
-    const [description, setDesc] = useState(images[selectNumber].desc);
-
-    const changeSelectImage = (prev, next) => {
-        const maxImages = images.length - 1;
-        console.log('이전', prev);
-        console.log('현재', selectNumber);
-        console.log('다음', next);
-        if (selectNumber - 1 === prev) {
-            const prevNum = prev - 1;
-            setSelectNumber(prevNum < 0 ? maxImages : prevNum);
-        } else if (selectNumber + 1 === next) {
-            const nextNum = prev + 1;
-            setSelectNumber(nextNum >= maxImages ? 0 : nextNum);
-        }
-    };
+    const [thisNumber, setThisNumber] = useState(selectImage);
+    const [description, setDesc] = useState(images[thisNumber].desc);
 
     useEffect(() => {
-        setDesc(images[selectNumber].desc);
-    }, [selectNumber]);
+        setDesc(images[thisNumber].desc);
+    }, [images, thisNumber]);
+
+    const changeSelectImage = (type) => {
+        const maxImages = images.length - 1;
+        let number = 0;
+        if (type === 'prev') {
+            const prevNum = thisNumber - 1;
+            number = prevNum < 0 ? maxImages : prevNum;
+            setThisNumber(number);
+        } else if (type === 'next') {
+            const nextNum = thisNumber + 1;
+            number = nextNum > maxImages ? 0 : nextNum;
+            setThisNumber(number);
+        }
+    };
 
     const closePopup = () => {
         closeEvent();
@@ -37,19 +37,20 @@ const DetailImages = ({visible, images, selectImage, closeEvent, info}) => {
                     <CgClose/>
                 </button>
                 <StyledImages className="styled-images">
-                    <Slides className="styled-slides" slideItems={images} bgType={true} navEvent={changeSelectImage}/>
+                    <Slides className="styled-slides" slideItems={images} bgType={true}
+                            navEvent={changeSelectImage} defaultIndex={selectImage}/>
                 </StyledImages>
             </StyledImageArea>
             <StyledDescArea>
                 <StyledHead>
-                    <img className="pf-profile" src="/common/profile.png"/>
+                    <img className="pf-profile" src="/common/profile.png" alt="프로필 이미지"/>
                     <div className="pf-title">
                         <p className="pf-name">{info.project}</p>
                         <p className="pf-period">{info.period}</p>
                     </div>
                 </StyledHead>
                 <StyledDesc>
-                    {description}
+                    <div dangerouslySetInnerHTML={{__html: description}}/>
                 </StyledDesc>
             </StyledDescArea>
         </StyledModal>
@@ -58,9 +59,9 @@ const DetailImages = ({visible, images, selectImage, closeEvent, info}) => {
 
 export default DetailImages;
 
-const StyledDesc = styled.p`
-    margin: 0;
-    padding: 0 .85rem .85rem;
+const StyledDesc = styled.div`
+    margin: 0 .85rem .85rem;
+    padding-bottom: 1rem;
     font-size: 1rem;
     color: #050505;
     border-bottom: 1px solid #ddd;

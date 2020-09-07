@@ -7,7 +7,7 @@ const PortfolioImg = ({images, width, count, openImage}) => {
         <StyledPortfolioImgs width={width}>
             {images.map((item, i) => {
                 return (
-                    <StyledPortfolioImg key={i} count={count} onClick={() => openImage(i)}>
+                    <StyledPortfolioImg key={i} count={count.current} onClick={() => openImage(i)}>
                         <img src={'/portfolio/' + item.img} alt={item.desc}/>
                     </StyledPortfolioImg>
                 )
@@ -20,6 +20,7 @@ export default PortfolioImg;
 
 const StyledPortfolioImg = styled.div`
     position: absolute;
+    cursor: pointer;
     
     >img {
         object-fit: cover;
@@ -28,7 +29,7 @@ const StyledPortfolioImg = styled.div`
     }
     
     ${({count}) => {
-    let style = '';
+    let style;
     switch (count) {
         case 1:
             style = `

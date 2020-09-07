@@ -13,13 +13,15 @@ const Portfolio = ({data}) => {
     return (
         <StyledPortfolio className="col portfolio-col">
             <StyledHead>
-                <img className="pf-profile" src="/common/profile.png"/>
+                <img className="pf-profile" src="/common/profile.png" alt="profile"/>
                 <div className="pf-title">
                     <p className="pf-name">{project}</p>
                     <p className="pf-period">{startDate + ' ~ ' + finishDate}</p>
                 </div>
             </StyledHead>
-            <StyledBody>{description}</StyledBody>
+            <StyledBody>
+                <div dangerouslySetInnerHTML={{__html: description}}/>
+            </StyledBody>
             {
                 (images.length > 0) ? <PortfolioImgContainer info={info} images={images}/> : ''
             }
